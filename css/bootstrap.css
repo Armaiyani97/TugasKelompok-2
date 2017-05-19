@@ -1188,10 +1188,10 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: inherit;
-  font-weight: 500;
-  line-height: 1.1;
-  color: inherit;
+  font-size: 2.5em;
+  color: #EA572D;
+  margin: 0em 0em 0.1em 0em;
+  font-family: 'Oswald', sans-serif;
 }
 h1 small,
 h2 small,
