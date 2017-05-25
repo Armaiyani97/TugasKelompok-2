@@ -7,7 +7,11 @@ class Connection {
 	// connection to database
 	public function __construct()
 	{
+<<<<<<< HEAD
 		$this->con = new mysqli("localhost","root","","daganganku");
+=======
+		$this->con = new mysqli("localhost","root","","projekrpl");
+>>>>>>> c9e24a79723a47999516b226aec7cbd71f0827bf
 	}
 
 	// try authentication user
@@ -20,9 +24,15 @@ class Connection {
 
 		if($stmt->fetch())
 		{
+<<<<<<< HEAD
 			header("location: index.php");
 		}else {
 			header("location: logingagal.php");
+=======
+			header("location: index.html");
+		}else {
+			header("location: logingagal.html");
+>>>>>>> c9e24a79723a47999516b226aec7cbd71f0827bf
 		}
 	}
 
@@ -39,6 +49,7 @@ class Connection {
 
 			if($statement->execute())
 			{
+<<<<<<< HEAD
 				header("location: login.php");
 			}else {
 				header("location: signup.php");
@@ -46,6 +57,15 @@ class Connection {
 
 		}else {
 			header("location: signupgagal.php");
+=======
+				header("location: index.html");
+			}else {
+				header("location: signup.html");
+			}
+
+		}else {
+			header("location: signupgagal.html");
+>>>>>>> c9e24a79723a47999516b226aec7cbd71f0827bf
 		}
 
 	}
