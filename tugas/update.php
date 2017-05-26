@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!--Author: W3layouts
 Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
@@ -7,7 +6,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Home || DaganganKu</title>
+<title>Update Harga || DaganganKu</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery-1.11.0.min.js"></script>
@@ -34,13 +33,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			});
 	</script>
 <!-- //end-smoth-scrolling -->
+<!-- the jScrollPane script -->
+<script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>
+		<script type="text/javascript" id="sourcecode">
+			$(function()
+			{
+				$('.scroll-pane').jScrollPane();
+			});
+		</script>
+<!-- //the jScrollPane script -->
 <script src="js/simpleCart.min.js"> </script>
 <script src="js/bootstrap.min.js"></script>
 </head>
 <body>
 <!--header strat here-->
 <p><font face="cooper black" size="10" color="red"><b> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; DaganganKu</b></font>
-<!-- <p><font face="harrington" size="4" color="black"><b>Menjual Aneka Sayur, Buah, Bumbu dan Lauk-pauk~</b></font></p> -->
 <div class="header">
 	<div class="container">
 		<div class="header-main">
@@ -57,7 +64,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					        
 					    </div>
 					    <!--/.navbar-header-->
-					  <div class="" id="bs-example-navbar-collapse-1">
+					 <div class="" id="bs-example-navbar-collapse-1">
 					        <ul class="nav navbar-nav">
 							
 					        	   <li><a href="index.html">Home</a></li>
@@ -103,80 +110,69 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 </div>
 <!--header end here-->
-<!--banner strat here-->
-<div class="banner">
-	<div class="container">
-		<div class="banner-main">
+<!--product start here-->
+<br>
+<br>
+<br>
 
-				<img src="image/bs1.jpg" alt="" class="img-responsive">
-			</div>
-			
-			<div class="clearfix"> </div>
-		</div>
-	</div>
+<style>   
+    table{
+        width: 30%;
+        margin: auto;
+        border-collapse: collapse;
+        box-shadow: darkgrey 3px;
+    }
+    thead tr {
+        background-color: #36c2ff;
+    }
+</style>
+ 
+			  
+			  
+<?php
+
+	include 'koneksi.php';
+	$nama_barang         = $_GET['nama_barang'];
+	$product  			 = mysqli_query($koneksi, "select * from product where nama_barang='$nama_barang'");
+	$row      			 = mysqli_fetch_array($product);
+	// membuat function untuk set aktif radio button
+	function active_radio_button($value,$input){
+	// apabilan value dari radio sama dengan yang di input
+	$result =  $value==$input?'checked':'';
+	return $result;
+	}
+
+?>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Update Harga</title>
+    </head>
+    <body>
+        <form method="post" action="edit.php">
+            <input type="hidden" value="<?php echo $row['nama_barang'];?>" name="nama_barang">
+            <table>
+                <tr><td>Nama Barang</td><td><input type="text" value="<?php echo $row['nama_barang'];?>" name="nama_barang"></td></tr>
+                <tr><td>Harga Lama</td><td><input value="<?php echo $row['harga_lama'];?>" type="text" name="harga_lama"></td></tr>
+                <tr><td>Harga Baru</td><td><input value="<?php echo $row['harga_baru'];?>" type="text" name="harga_baru"></td></tr></td>
+				<td align=center colspan="2"><button type="submit" value="Simpan">Submit</button></td>
+            </table>
+        </form>
+    </body>
+</html>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 </div>
-<!--block-layer1 end here-->
-<!--home-block start here-->
-<div class="home-block">
-	<div class="container">
-		<div class="home-block-main">
-			<div class="col-md-3 home-grid">
-				<div class="home-product-main">
-				   <div class="home-product-top">
-				      <a href="buah.html"><img src="image/mangga.jpg" alt="" class="img-responsive zoom-img"></a>
-				   </div>
-					<div class="home-product-bottom">
-							<h3>Mangga</h3>						
-					</div>
-					<div class="srch">
-						<span>Rp.15.000</span>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 home-grid">
-				<div class="home-product-main">
-				   <div class="home-product-top">
-				      <a href="lauk.html"><img src="image/kerbau.jpg" alt="" class="img-responsive zoom-img"></a>
-				   </div>
-					<div class="home-product-bottom">
-							<h3>Daging Kerbau</h3>						
-					</div>
-					<div class="srch">
-						<span>Rp.70.000</span>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 home-grid">
-				<div class="home-product-main">
-				   <div class="home-product-top">
-				      <a href="bumbu.html"><img src="image/cabem.jpg" alt="" class="img-responsive zoom-img"></a>
-				   </div>
-					<div class="home-product-bottom">
-							<h3>Cabe Merah</h3>						
-					</div>
-					<div class="srch">
-						<span>Rp.15.000</span>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 home-grid">
-				<div class="home-product-main">
-				   <div class="home-product-top">
-				      <a href="sayur.html"><img src="image/brokoli.jpg" alt="" class="img-responsive zoom-img"></a>
-				   </div>
-					<div class="home-product-bottom">
-							<h3>Brokoli</h3>						
-					</div>
-					<div class="srch">
-						<span>Rp.5000</span>
-					</div>
-				</div>
-			</div>
-			<div class="clearfix"> </div>
-		</div>
-	</div>
-</div>	
-<!--home block end here-->
+<!--product end here-->
 <!--footer strat here-->
 <div class="footer">
 	<div class="container">
@@ -202,6 +198,3 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--footer end here-->
 </body>
 </html>
-=======
-# TugasKelompok-2
->>>>>>> 1ead2ff8d0397ba3965c5c795d59d8faefe2742e

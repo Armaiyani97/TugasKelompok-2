@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!--Author: W3layouts
 Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
@@ -7,7 +6,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Home || DaganganKu</title>
+<title>Daftar Harga || DaganganKu</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/jquery-1.11.0.min.js"></script>
@@ -34,13 +33,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			});
 	</script>
 <!-- //end-smoth-scrolling -->
+<!-- the jScrollPane script -->
+<script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>
+		<script type="text/javascript" id="sourcecode">
+			$(function()
+			{
+				$('.scroll-pane').jScrollPane();
+			});
+		</script>
+<!-- //the jScrollPane script -->
 <script src="js/simpleCart.min.js"> </script>
 <script src="js/bootstrap.min.js"></script>
 </head>
 <body>
 <!--header strat here-->
-<p><font face="cooper black" size="10" color="red"><b> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; DaganganKu</b></font>
-<!-- <p><font face="harrington" size="4" color="black"><b>Menjual Aneka Sayur, Buah, Bumbu dan Lauk-pauk~</b></font></p> -->
 <div class="header">
 	<div class="container">
 		<div class="header-main">
@@ -54,10 +60,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						        <span class="icon-bar"></span>
 						        <span class="icon-bar"></span>
 					        </button>
-					        
+					        <div class="navbar-brand logo">
+								<a href="index.html"><img src="images/logo1.png" alt=""></a>
+							</div>
 					    </div>
 					    <!--/.navbar-header-->
-					  <div class="" id="bs-example-navbar-collapse-1">
+					 <div class="" id="bs-example-navbar-collapse-1">
 					        <ul class="nav navbar-nav">
 							
 					        	   <li><a href="index.html">Home</a></li>
@@ -102,81 +110,125 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 </div>
-<!--header end here-->
-<!--banner strat here-->
-<div class="banner">
-	<div class="container">
-		<div class="banner-main">
 
-				<img src="image/bs1.jpg" alt="" class="img-responsive">
-			</div>
-			
-			<div class="clearfix"> </div>
-		</div>
-	</div>
-</div>
-<!--block-layer1 end here-->
-<!--home-block start here-->
-<div class="home-block">
+<div class="product">
 	<div class="container">
-		<div class="home-block-main">
-			<div class="col-md-3 home-grid">
-				<div class="home-product-main">
-				   <div class="home-product-top">
-				      <a href="buah.html"><img src="image/mangga.jpg" alt="" class="img-responsive zoom-img"></a>
-				   </div>
-					<div class="home-product-bottom">
-							<h3>Mangga</h3>						
-					</div>
-					<div class="srch">
-						<span>Rp.15.000</span>
+		<div class="product-main">
+			  <div class=" product-menu-bar">
+			    	<div class="col-md-3 prdt-right">
+					<div class="w_sidebar">
+						<section  class="sky-form">
+							<h1>Daftar Menu</h1>
+							<div class="row1 scroll-pane">
+								<div class="col col-4">
+									<label><i></i>Daftar Menu</label>
+								</div>
+								<div class="col col-4">								
+									<label><i></i>- Melon</label><br>
+									<label><i></i>- Mangga</label><br>
+									<label><i></i>- Jeruk</label><br>		
+									<label><i></i>- Pepaya</label><br>
+									<label><i></i>- Strawberry</label><br>
+									<label><i></i>- Sawo</label><br>
+									<label><i></i>- Manggis</label><br>
+									<label><i></i>- Durian</label><br>
+									<label><i></i>- Salak</label><br>	
+									<label><i></i>- Terong</label><br>
+									<label><i></i>- Kacang Panjang</label><br>
+									<label><i></i>- Kentang</label><br>		
+									<label><i></i>- Jagung</label><br>
+									<label><i></i>- Tomat</label><br>
+									<label><i></i>- Wortel</label><br>
+									<label><i></i>- Asparagus</label><br>
+									<label><i></i>- Brokoli</label><br>
+									<label><i></i>- Lobak</label><br>							
+									<label><i></i>- Ikan Tongkol</label><br>
+									<label><i></i>- Telur</label><br>
+									<label><i></i>- Daging Sapi</label><br>		
+									<label><i></i>- Daging Kambing</label><br>
+									<label><i></i>- Tempe</label><br>
+									<label><i></i>- Ikan Mujair</label><br>
+									<label><i></i>- Bandang</label><br>
+									<label><i></i>- Daging Kerbau</label><br>
+									<label><i></i>- Daging Ayam</label><br>							
+									<label><i></i>- Cabe Merah</label><br>
+									<label><i></i>- Garam</label><br>
+									<label><i></i>- Penyedap</label><br>		
+									<label><i></i>- Jahe</label><br>
+									<label><i></i>- Kunyit</label><br>
+									<label><i></i>- Kapulaga</label><br>
+									<label><i></i>- Lada Hitam</label><br>
+									<label><i></i>- Cabai Hijau</label><br>
+									<label><i></i>- Serai</label><br>									
+								</div>
+							</div>
+						</section>	
 					</div>
 				</div>
-			</div>
-			<div class="col-md-3 home-grid">
-				<div class="home-product-main">
-				   <div class="home-product-top">
-				      <a href="lauk.html"><img src="image/kerbau.jpg" alt="" class="img-responsive zoom-img"></a>
-				   </div>
-					<div class="home-product-bottom">
-							<h3>Daging Kerbau</h3>						
-					</div>
-					<div class="srch">
-						<span>Rp.70.000</span>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 home-grid">
-				<div class="home-product-main">
-				   <div class="home-product-top">
-				      <a href="bumbu.html"><img src="image/cabem.jpg" alt="" class="img-responsive zoom-img"></a>
-				   </div>
-					<div class="home-product-bottom">
-							<h3>Cabe Merah</h3>						
-					</div>
-					<div class="srch">
-						<span>Rp.15.000</span>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3 home-grid">
-				<div class="home-product-main">
-				   <div class="home-product-top">
-				      <a href="sayur.html"><img src="image/brokoli.jpg" alt="" class="img-responsive zoom-img"></a>
-				   </div>
-					<div class="home-product-bottom">
-							<h3>Brokoli</h3>						
-					</div>
-					<div class="srch">
-						<span>Rp.5000</span>
-					</div>
-				</div>
-			</div>
-			<div class="clearfix"> </div>
-		</div>
-	</div>
-</div>	
-<!--home block end here-->
+			  </div>	
+			  
+			  
+<?php
+
+	include 'koneksi.php';
+	
+?>
+
+<style>
+
+    tbody > tr:nth-child(2n+1) > td, tbody > tr:nth-child(2n+1) > th {
+        background-color: #ededed;
+    }
+    table{
+        width: 70%;
+        margin: auto;
+        border-collapse: collapse;
+        box-shadow: darkgrey 3px;
+    }
+    thead tr {
+        background-color: #36c2ff;
+    }
+</style>
+ 
+<h1 align="center">Tabel Harga</h1>
+ 
+<head>
+        <title>Nama Barang</title>
+    </head>
+    <body>
+        <h3>Daftar Harga Barang</h3>
+		
+        <table border="1">
+			<br>
+            <tr><th><div align="center">NO</div></th><th><div align="center">Nama Barang</div></th><th><div align="center">Harga Lama</div></th><th><div align="center">Harga Baru</div><th><div align="center">Pilihan</div></th></tr>
+			<?php
+            include 'koneksi.php';
+            $product = mysqli_query($koneksi, "SELECT * from product");
+            $no = 1;
+            foreach ($product as $row) {
+                echo "<tr>
+            <td align=center>$no</td>
+            <td align=center>" . $row['nama_barang'] . "</td>
+            <td align=center>" . $row['harga_lama'] . "</td>
+            <td align=center>" . $row['harga_baru'] . "</td>
+            <td align=center><a href='update.php?nama_barang=$row[nama_barang]'>Edit</a></td>
+              </tr>";
+                $no++;
+            }
+            ?>
+        </table>
+		
+ 
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<!--product end here-->
 <!--footer strat here-->
 <div class="footer">
 	<div class="container">
@@ -202,6 +254,3 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--footer end here-->
 </body>
 </html>
-=======
-# TugasKelompok-2
->>>>>>> 1ead2ff8d0397ba3965c5c795d59d8faefe2742e
