@@ -7,7 +7,15 @@ class Connection {
 	// connection to database
 	public function __construct()
 	{
+<<<<<<< HEAD
 		$this->con = new mysqli("localhost","root","","projekrpl");
+=======
+<<<<<<< HEAD
+		$this->con = new mysqli("localhost","root","","daganganku");
+=======
+		$this->con = new mysqli("localhost","root","","projekrpl");
+>>>>>>> c9e24a79723a47999516b226aec7cbd71f0827bf
+>>>>>>> 266052ed46eff367946ba9988fff90e7bccac68e
 	}
 
 	// try authentication user
@@ -20,9 +28,21 @@ class Connection {
 
 		if($stmt->fetch())
 		{
+<<<<<<< HEAD
 			header("location: index.html");
 		}else {
 			header("location: logingagal.html");
+=======
+<<<<<<< HEAD
+			header("location: index.php");
+		}else {
+			header("location: logingagal.php");
+=======
+			header("location: index.html");
+		}else {
+			header("location: logingagal.html");
+>>>>>>> c9e24a79723a47999516b226aec7cbd71f0827bf
+>>>>>>> 266052ed46eff367946ba9988fff90e7bccac68e
 		}
 	}
 
@@ -39,6 +59,18 @@ class Connection {
 
 			if($statement->execute())
 			{
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+				header("location: login.php");
+			}else {
+				header("location: signup.php");
+			}
+
+		}else {
+			header("location: signupgagal.php");
+=======
+>>>>>>> 266052ed46eff367946ba9988fff90e7bccac68e
 				header("location: index.html");
 			}else {
 				header("location: signup.html");
@@ -46,6 +78,10 @@ class Connection {
 
 		}else {
 			header("location: signupgagal.html");
+<<<<<<< HEAD
+=======
+>>>>>>> c9e24a79723a47999516b226aec7cbd71f0827bf
+>>>>>>> 266052ed46eff367946ba9988fff90e7bccac68e
 		}
 
 	}
