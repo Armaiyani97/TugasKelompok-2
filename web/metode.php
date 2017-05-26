@@ -35,6 +35,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			});
 	</script>
 <!-- //end-smoth-scrolling -->
+	<!--?
+	include 'koneksi.php';
+	session_start();   
+		$strsql="SELECT buah.*, kategori.nama_kategori FROM buah, kategori WHERE buah.id_kategori=kategori.id_kategori AND buah.id_kategori='$id'";
+		$query=mysql_query($strsql,$koneksi);
+	<a href=keranjangku.php?id_barang=$data[id_barang]&harga_barang=$data[harga_barang]&jumlah=1&subtotal=$data[harga_barang]> <img src=image/add-to-cart.gif> </a> 
+	?-->
 <!-- the jScrollPane script -->
 <script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>
 		<script type="text/javascript" id="sourcecode">
@@ -50,7 +57,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 <!--header strat here-->
 <p><font face="cooper black" size="10" color="#EA572D"><b> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; DaganganKu</b></font>
-<!-- <p><font face="harrington" size="4" color="black"><b>Menjual Aneka Sayur, Buah, Bumbu dan Lauk-pauk~</b></font></p> -->
+<!-- <p><font face="harrington" size="4" color="black"><b>Menjual Aneka Sayur, Buah, Bumbu dan Lauk-pauk~</b></font></p> -->>
 <div class="header">
 	<div class="container">
 		<div class="header-main">
@@ -124,7 +131,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 </div>
 <!--header end here-->
-<!--product start here-->
+</div>
 <br>
 <br>
 <br>
@@ -140,40 +147,37 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         background-color: #36c2ff;
     }
 </style>
- 
-			  
-			  
-<?php
-
-	include 'koneksi.php';
-	$nama_barang         = $_GET['nama_barang'];
-	$product  			 = mysqli_query($koneksi, "select * from product where nama_barang='$nama_barang'");
-	$row      			 = mysqli_fetch_array($product);
-	// membuat function untuk set aktif radio button
-	function active_radio_button($value,$input){
-	// apabilan value dari radio sama dengan yang di input
-	$result =  $value==$input?'checked':'';
-	return $result;
-	}
-
-?>
-
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Update Harga</title>
+        <title>Metode</title>
     </head>
     <body>
-        <form method="post" action="edit.php">
-            <input type="hidden" value="<?php echo $row['nama_barang'];?>" name="nama_barang">
-            <table>
-                <tr><td>Nama Barang</td><td><input type="text" value="<?php echo $row['nama_barang'];?>" name="nama_barang"></td></tr>
-                <tr><td>Harga Lama</td><td><input value="<?php echo $row['harga_lama'];?>" type="text" name="harga_lama"></td></tr>
-                <tr><td>Harga Baru</td><td><input value="<?php echo $row['harga_baru'];?>" type="text" name="harga_baru"></td></tr></td>
-				<td align=center colspan="2"><button type="submit" value="Simpan">Submit</button></td>
-            </table>
+        <form method="post" action="">
+            <input type="hidden" value="" name="">
+           <!-- bayar -->
+		<div class="w3_login">
+		<div align="center">
+			<h3>Silahkan Masukkan Nomor Rekening</h3><br>
+			<div class="w3_login_module">
+				<div class="module form-module">
+				  <div class="toggle"><i class="fa fa-times fa-pencil"></i>
+				  </div>
+				  <div class="form">
+				  <div align="center">
+						No Rekening : ex. 4217-7080-0987-1251 <br>
+					<form action="#" method="post">
+					  <input type="text" name="no_rekening" placeholder="No Rekening" required=" ">
+					  <input type="submit" value="Submit">
+					</form>
+				  </div>
+				 </div>
+			</div>
+		</div>
         </form>
     </body>
+</html>
+
 </html>
 
 <br>
@@ -185,8 +189,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <br>
 <br>
 
-</div>
-<!--product end here-->
 <!--footer strat here-->
 <div class="footer">
 	<div class="container">

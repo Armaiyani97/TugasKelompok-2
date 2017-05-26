@@ -35,15 +35,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			});
 	</script>
 <!-- //end-smoth-scrolling -->
-<!-- the jScrollPane script -->
-<script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>
-		<script type="text/javascript" id="sourcecode">
-			$(function()
-			{
-				$('.scroll-pane').jScrollPane();
-			});
-		</script>
-<!-- //the jScrollPane script -->
 <script src="js/simpleCart.min.js"> </script>
 <script src="js/bootstrap.min.js"></script>
 </head>
@@ -125,66 +116,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 <!--header end here-->
 <!--product start here-->
-<br>
-<br>
-<br>
-
-<style>   
-    table{
-        width: 30%;
-        margin: auto;
-        border-collapse: collapse;
-        box-shadow: darkgrey 3px;
-    }
-    thead tr {
-        background-color: #36c2ff;
-    }
-</style>
- 
-			  
-			  
-<?php
-
-	include 'koneksi.php';
-	$nama_barang         = $_GET['nama_barang'];
-	$product  			 = mysqli_query($koneksi, "select * from product where nama_barang='$nama_barang'");
-	$row      			 = mysqli_fetch_array($product);
-	// membuat function untuk set aktif radio button
-	function active_radio_button($value,$input){
-	// apabilan value dari radio sama dengan yang di input
-	$result =  $value==$input?'checked':'';
-	return $result;
-	}
-
-?>
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Update Harga</title>
-    </head>
-    <body>
-        <form method="post" action="edit.php">
-            <input type="hidden" value="<?php echo $row['nama_barang'];?>" name="nama_barang">
-            <table>
-                <tr><td>Nama Barang</td><td><input type="text" value="<?php echo $row['nama_barang'];?>" name="nama_barang"></td></tr>
-                <tr><td>Harga Lama</td><td><input value="<?php echo $row['harga_lama'];?>" type="text" name="harga_lama"></td></tr>
-                <tr><td>Harga Baru</td><td><input value="<?php echo $row['harga_baru'];?>" type="text" name="harga_baru"></td></tr></td>
-				<td align=center colspan="2"><button type="submit" value="Simpan">Submit</button></td>
-            </table>
-        </form>
-    </body>
-</html>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
+<div class="contact">
+	<div class="container">
+		<div class="contact-main">
+			<div class="contact-top">
+				<h1>About Us</h1>
+				<p>DaganganKu merupakan online shop yang menjual bahan pokok yang segar dan berkualitas yang berasal dari pasar Rukoh, Banda Aceh. DaganganKu sangat mengutamakan kesegaran dari product yang akan dijual dan sudah banyak pembeli yang puas terhadap product yang kami jual. Sampai saat ini DaganganKu sudah terdiri dari 17 tahun, yaitu berdiri sejak tahun 2000.</p>
+			</div>
+		</div>
+	</div>
 </div>
 <!--product end here-->
 <!--footer strat here-->

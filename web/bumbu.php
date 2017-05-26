@@ -35,6 +35,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			});
 	</script>
 <!-- //end-smoth-scrolling -->
+		<!--?
+        include 'koneksi.php';
+	session_start();   
+		$strsql="SELECT bumbu.*, kategori.nama_kategori FROM bumbu, kategori WHERE bumbu.id_kategori=kategori.id_kategori AND bumbu.id_kategori='$id'";
+		$query=mysql_query($strsql,$koneksi);
+        <a href=keranjangku.php?id_barang=$data[id_barang]&harga_barang=$data[harga_barang]&jumlah=1&subtotal=$data[harga_barang]> <img src=image/add-to-cart.gif> </a>
+	?-->
 <!-- the jScrollPane script -->
 <script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>
 		<script type="text/javascript" id="sourcecode">
@@ -125,66 +132,165 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 <!--header end here-->
 <!--product start here-->
-<br>
-<br>
-<br>
-
-<style>   
-    table{
-        width: 30%;
-        margin: auto;
-        border-collapse: collapse;
-        box-shadow: darkgrey 3px;
-    }
-    thead tr {
-        background-color: #36c2ff;
-    }
-</style>
- 
-			  
-			  
-<?php
-
-	include 'koneksi.php';
-	$nama_barang         = $_GET['nama_barang'];
-	$product  			 = mysqli_query($koneksi, "select * from product where nama_barang='$nama_barang'");
-	$row      			 = mysqli_fetch_array($product);
-	// membuat function untuk set aktif radio button
-	function active_radio_button($value,$input){
-	// apabilan value dari radio sama dengan yang di input
-	$result =  $value==$input?'checked':'';
-	return $result;
-	}
-
-?>
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Update Harga</title>
-    </head>
-    <body>
-        <form method="post" action="edit.php">
-            <input type="hidden" value="<?php echo $row['nama_barang'];?>" name="nama_barang">
-            <table>
-                <tr><td>Nama Barang</td><td><input type="text" value="<?php echo $row['nama_barang'];?>" name="nama_barang"></td></tr>
-                <tr><td>Harga Lama</td><td><input value="<?php echo $row['harga_lama'];?>" type="text" name="harga_lama"></td></tr>
-                <tr><td>Harga Baru</td><td><input value="<?php echo $row['harga_baru'];?>" type="text" name="harga_baru"></td></tr></td>
-				<td align=center colspan="2"><button type="submit" value="Simpan">Submit</button></td>
-            </table>
-        </form>
-    </body>
-</html>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
+<div class="product">
+	<div class="container">
+		<div class="product-main">
+			  <div class=" product-menu-bar">
+			    	<div class="col-md-3 prdt-right">
+					<div class="w_sidebar">
+						<section  class="sky-form">
+							<h1>Bumbu Dapur</h1>
+							<div class="row1 scroll-pane">
+								<div class="col col-4">
+									<label><i></i>Daftar Bumbu</label>
+								</div>
+								<div class="col col-4">								
+									<label><i></i>- Cabai Merah</label><br>
+									<label><i></i>- Garam</label><br>
+									<label><i></i>- Penyedap</label><br>		
+									<label><i></i>- Jahe</label><br>
+									<label><i></i>- Kunyit</label><br>
+									<label><i></i>- Kapulaga</label><br>
+									<label><i></i>- Lada Hitam</label><br>
+									<label><i></i>- Cabe Hijau</label><br>
+									<label><i></i>- Serai</label><br>
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+			  </div>	
+			  <div class="col-md-9 product-block">
+			      <div class="col-md-4 home-grid">
+					<div class="home-product-main">
+					   <div class="home-product-top">
+					      <a href="checkout3.php"><img src="image/cabem.jpg" alt="" class="img-responsive zoom-img"></a>
+					   </div>
+						<div class="home-product-bottom">
+								<h3>Cabe Merah</h3>
+                                <p>Stock : 30 Kg</p>
+						</div>
+						<div class="srch">
+							<span>Rp.15000/Kg</span>
+						</div>
+					</div>
+				 </div>
+			      <div class="col-md-4 home-grid">
+					<div class="home-product-main">
+					   <div class="home-product-top">
+					      <a href="single.html"><img src="image/garam.jpg" alt="" class="img-responsive zoom-img"></a>
+					   </div>
+						<div class="home-product-bottom">
+								<h3>Garam</h3>
+                                <p>Stock : 12 Kg</p>
+						</div>
+						<div class="srch">
+							<span>Rp.3000/Kg</span>
+						</div>
+					</div>
+				 </div>
+			     <div class="col-md-4 home-grid">
+					<div class="home-product-main">
+					   <div class="home-product-top">
+					      <a href="single.html"><img src="image/penyedap.jpg" alt="" class="img-responsive zoom-img"></a>
+					   </div>
+						<div class="home-product-bottom">
+								<h3>Penyedap</h3>
+                                <p>Stock : 22 Kg</p>
+						</div>
+						<div class="srch">
+							<span>Rp.2000/Kg</span>
+						</div>
+					</div>
+				 </div>
+			      <div class="col-md-4 home-grid">
+					<div class="home-product-main">
+					   <div class="home-product-top">
+					      <a href="single.html"><img src="image/jahe.jpg" alt="" class="img-responsive zoom-img"></a>
+					   </div>
+						<div class="home-product-bottom">
+								<h3>Jahe</h3>
+                                <p>Stock : 7 Kg</p>
+						</div>
+						<div class="srch">
+							<span>Rp.7000/Kg</span>
+						</div>
+					</div>
+				 </div>
+			      <div class="col-md-4 home-grid">
+					<div class="home-product-main">
+					   <div class="home-product-top">
+					      <a href="single.html"><img src="image/kunyit.jpg" alt="" class="img-responsive zoom-img"></a>
+					   </div>
+						<div class="home-product-bottom">
+								<h3>Kunyit</h3>
+                                <p>Stock : 7 Kg</p>
+						</div>
+						<div class="srch">
+							<span>Rp.8000/Kg</span>
+						</div>
+					</div>
+				 </div>
+			      <div class="col-md-4 home-grid">
+					<div class="home-product-main">
+					   <div class="home-product-top">
+					      <a href="single.html"><img src="image/kapulaga.jpg" alt="" class="img-responsive zoom-img"></a>
+					   </div>
+						<div class="home-product-bottom">
+								<h3>Kapulaga</h3>
+                                <p>Stock : 5 Kg</p>
+						</div>
+						<div class="srch">
+							<span>Rp.3000/Kg</span>
+						</div>
+					</div>
+				 </div>
+			      <div class="col-md-4 home-grid">
+					<div class="home-product-main">
+					   <div class="home-product-top">
+					      <a href="single.html"><img src="image/lada.jpg" alt="" class="img-responsive zoom-img"></a>
+					   </div>
+						<div class="home-product-bottom">
+								<h3>Lada Hitam</h3>
+                                <p>Stock : 5 Kg</p>
+						</div>
+						<div class="srch">
+							<span>Rp.4000/Kg</span>
+						</div>
+					</div>
+				 </div>
+			      <div class="col-md-4 home-grid">
+					<div class="home-product-main">
+					   <div class="home-product-top">
+					      <a href="single.html"><img src="image/cabeh.jpg" alt="" class="img-responsive zoom-img"></a>
+					   </div>
+						<div class="home-product-bottom">
+								<h3>Cabe Hijau</h3>
+                                <p>Stock : 20 Kg</p>
+						</div>
+						<div class="srch">
+							<span>Rp.10.000/Kg</span>
+						</div>
+					</div>
+				 </div>
+			      <div class="col-md-4 home-grid">
+					<div class="home-product-main">
+					   <div class="home-product-top">
+					      <a href="single.html"><img src="image/serai.jpg" alt="" class="img-responsive zoom-img"></a>
+					   </div>
+						<div class="home-product-bottom">
+								<h3>Serai</h3>
+                                <p>Stock : 7 Kg</p>
+						</div>
+						<div class="srch">
+							<span>Rp.3000/Kg</span>
+						</div>
+					</div>
+				 </div>
+			      <div class="clearfix"> </div>
+			  </div>
+		</div>
+	</div>
 </div>
 <!--product end here-->
 <!--footer strat here-->

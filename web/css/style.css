@@ -1480,7 +1480,6 @@ ul.cart-header li span h6,ul.cart-header1 li span h6,ul.cart-header2 li span h6{
     background:#EA552B;
     border: none;
     outline: none;
-        float: right;
     margin-top: 2em;
 }
 .signin-main input[type="submit"]:hover {

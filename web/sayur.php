@@ -35,6 +35,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			});
 	</script>
 <!-- //end-smoth-scrolling -->
+		<!--?
+		include 'koneksi.php';
+	session_start();   
+		$strsql="SELECT sayur.*, kategori.nama_kategori FROM sayur, kategori WHERE sayur.id_kategori=kategori.id_kategori AND sayur.id_kategori='$id'";
+		$query=mysql_query($strsql,$koneksi);
+		<a href=keranjangku.php?id_barang=$data[id_barang]&harga_barang=$data[harga_barang]&jumlah=1&subtotal=$data[harga_barang]> <img src=image/add-to-cart.gif> </a>
+	?-->
 <!-- the jScrollPane script -->
 <script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>
 		<script type="text/javascript" id="sourcecode">
@@ -125,66 +132,165 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 <!--header end here-->
 <!--product start here-->
-<br>
-<br>
-<br>
-
-<style>   
-    table{
-        width: 30%;
-        margin: auto;
-        border-collapse: collapse;
-        box-shadow: darkgrey 3px;
-    }
-    thead tr {
-        background-color: #36c2ff;
-    }
-</style>
- 
-			  
-			  
-<?php
-
-	include 'koneksi.php';
-	$nama_barang         = $_GET['nama_barang'];
-	$product  			 = mysqli_query($koneksi, "select * from product where nama_barang='$nama_barang'");
-	$row      			 = mysqli_fetch_array($product);
-	// membuat function untuk set aktif radio button
-	function active_radio_button($value,$input){
-	// apabilan value dari radio sama dengan yang di input
-	$result =  $value==$input?'checked':'';
-	return $result;
-	}
-
-?>
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Update Harga</title>
-    </head>
-    <body>
-        <form method="post" action="edit.php">
-            <input type="hidden" value="<?php echo $row['nama_barang'];?>" name="nama_barang">
-            <table>
-                <tr><td>Nama Barang</td><td><input type="text" value="<?php echo $row['nama_barang'];?>" name="nama_barang"></td></tr>
-                <tr><td>Harga Lama</td><td><input value="<?php echo $row['harga_lama'];?>" type="text" name="harga_lama"></td></tr>
-                <tr><td>Harga Baru</td><td><input value="<?php echo $row['harga_baru'];?>" type="text" name="harga_baru"></td></tr></td>
-				<td align=center colspan="2"><button type="submit" value="Simpan">Submit</button></td>
-            </table>
-        </form>
-    </body>
-</html>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
+<div class="product">
+	<div class="container">
+		<div class="product-main">
+			  <div class=" product-menu-bar">
+			    	<div class="col-md-3 prdt-right">
+					<div class="w_sidebar">
+						<section  class="sky-form">
+							<h1>Sayur-sayuran</h1>
+							<div class="row1 scroll-pane">
+								<div class="col col-4">
+									<label><i></i>Daftar Sayur</label>
+								</div>
+								<div class="col col-4">								
+									<label><i></i>- Terong</label><br>
+									<label><i></i>- Kacang Panjang</label><br>
+									<label><i></i>- Kentang</label><br>		
+									<label><i></i>- Jagung</label><br>
+									<label><i></i>- Tomat</label><br>
+									<label><i></i>- Wortel</label><br>
+									<label><i></i>- Asparagus</label><br>
+									<label><i></i>- Brokoli</label><br>
+									<label><i></i>- Lobak</label><br>				
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+			  </div>	
+			  <div class="col-md-9 product-block">
+			      <div class="col-md-4 home-grid">
+					<div class="home-product-main">
+					   <div class="home-product-top">
+					      <a href="checkout1.php"><img src="image/terong.jpg" alt="" class="img-responsive zoom-img"></a>
+					   </div>
+						<div class="home-product-bottom">
+								<h3>Terong</h3>
+								<p>Stock : 15 Kg</p>
+						</div>
+						<div class="srch">
+							<span>Rp.5000/Kg</span>
+						</div>
+					</div>
+				 </div>
+			      <div class="col-md-4 home-grid">
+					<div class="home-product-main">
+					   <div class="home-product-top">
+					      <a href="single.html"><img src="image/kacangp.jpg" alt="" class="img-responsive zoom-img"></a>
+					   </div>
+						<div class="home-product-bottom">
+								<h3>Kacang Panjang</h3>
+								<p>Stock : 25 Kg</p>
+						</div>
+						<div class="srch">
+							<span>Rp.7000/Kg</span>
+						</div>
+					</div>
+				 </div>
+			     <div class="col-md-4 home-grid">
+					<div class="home-product-main">
+					   <div class="home-product-top">
+					      <a href="single.html"><img src="image/kentang.jpg" alt="" class="img-responsive zoom-img"></a>
+					   </div>
+						<div class="home-product-bottom">
+								<h3>Kentang</h3>
+								<p>Stock : 10 Kg</p>
+						</div>
+						<div class="srch">
+							<span>Rp.6000/Kg</span>
+						</div>
+					</div>
+				 </div>
+			      <div class="col-md-4 home-grid">
+					<div class="home-product-main">
+					   <div class="home-product-top">
+					      <a href="single.html"><img src="image/jagung.jpg" alt="" class="img-responsive zoom-img"></a>
+					   </div>
+						<div class="home-product-bottom">
+								<h3>Jagung</h3>
+								<p>Stock : 10 Kg</p>
+						</div>
+						<div class="srch">
+							<span>Rp.10.000/Kg</span>
+						</div>
+					</div>
+				 </div>
+			      <div class="col-md-4 home-grid">
+					<div class="home-product-main">
+					   <div class="home-product-top">
+					      <a href="single.html"><img src="image/tomat.jpg" alt="" class="img-responsive zoom-img"></a>
+					   </div>
+						<div class="home-product-bottom">
+								<h3>Tomat</h3>
+								<p>Stock : 15 Kg</p>
+						</div>
+						<div class="srch">
+							<span>Rp.4000/Kg</span>
+						</div>
+					</div>
+				 </div>
+			      <div class="col-md-4 home-grid">
+					<div class="home-product-main">
+					   <div class="home-product-top">
+					      <a href="single.html"><img src="image/wortel.jpg" alt="" class="img-responsive zoom-img"></a>
+					   </div>
+						<div class="home-product-bottom">
+								<h3>Wortel</h3>
+								<p>Stock : 5 Kg</p>
+						</div>
+						<div class="srch">
+							<span>Rp.8000/Kg</span>
+						</div>
+					</div>
+				 </div>
+			      <div class="col-md-4 home-grid">
+					<div class="home-product-main">
+					   <div class="home-product-top">
+					      <a href="single.html"><img src="image/asparagus.jpg" alt="" class="img-responsive zoom-img"></a>
+					   </div>
+						<div class="home-product-bottom">
+								<h3>Asparagus</h3>
+								<p>Stock : 25 Kg</p>
+						</div>
+						<div class="srch">
+							<span>Rp.15.000/Kg</span>
+						</div>
+					</div>
+				 </div>
+			      <div class="col-md-4 home-grid">
+					<div class="home-product-main">
+					   <div class="home-product-top">
+					      <a href="single.html"><img src="image/brokoli.jpg" alt="" class="img-responsive zoom-img"></a>
+					   </div>
+						<div class="home-product-bottom">
+								<h3>Brokoli</h3>
+								<p>Stock : 12 Kg</p>
+						</div>
+						<div class="srch">
+							<span>Rp.5000/Kg</span>
+						</div>
+					</div>
+				 </div>
+			      <div class="col-md-4 home-grid">
+					<div class="home-product-main">
+					   <div class="home-product-top">
+					      <a href="single.html"><img src="image/lobak.jpg" alt="" class="img-responsive zoom-img"></a>
+					   </div>
+						<div class="home-product-bottom">
+								<h3>Lobak</h3>
+								<p>Stock : 7 Kg</p>
+						</div>
+						<div class="srch">
+							<span>Rp.7000/Kg</span>
+						</div>
+					</div>
+				 </div>
+			      <div class="clearfix"> </div>
+			  </div>
+		</div>
+	</div>
 </div>
 <!--product end here-->
 <!--footer strat here-->

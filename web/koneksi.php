@@ -1,7 +1,7 @@
 <?php
 
 	$server   = "localhost";
-	$database = "5-in-1-delivery";
+	$database = "daganganku";
 	$username = "root";
 	$password = "";
 

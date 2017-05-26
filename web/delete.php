@@ -1,9 +1,9 @@
 <?php
 include 'koneksi.php';
 // menyimpan data id kedalam variabel
-$id_barang   = $_GET['id_barang'];
+$nama_barang   = $_GET['nama_barang'];
 // query SQL untuk insert data
-$query="DELETE from daganganku where $id_barang   = $_GET['id_barang'];
+$query="DELETE from product where $nama_barang   = $_GET['nama_barang'];
 mysqli_query($koneksi, $query);
 // mengalihkan ke halaman index.php
 header("location:harga_barang.php");

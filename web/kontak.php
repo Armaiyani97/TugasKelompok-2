@@ -125,66 +125,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 <!--header end here-->
 <!--product start here-->
-<br>
-<br>
-<br>
-
-<style>   
-    table{
-        width: 30%;
-        margin: auto;
-        border-collapse: collapse;
-        box-shadow: darkgrey 3px;
-    }
-    thead tr {
-        background-color: #36c2ff;
-    }
-</style>
- 
-			  
-			  
-<?php
-
-	include 'koneksi.php';
-	$nama_barang         = $_GET['nama_barang'];
-	$product  			 = mysqli_query($koneksi, "select * from product where nama_barang='$nama_barang'");
-	$row      			 = mysqli_fetch_array($product);
-	// membuat function untuk set aktif radio button
-	function active_radio_button($value,$input){
-	// apabilan value dari radio sama dengan yang di input
-	$result =  $value==$input?'checked':'';
-	return $result;
-	}
-
-?>
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Update Harga</title>
-    </head>
-    <body>
-        <form method="post" action="edit.php">
-            <input type="hidden" value="<?php echo $row['nama_barang'];?>" name="nama_barang">
-            <table>
-                <tr><td>Nama Barang</td><td><input type="text" value="<?php echo $row['nama_barang'];?>" name="nama_barang"></td></tr>
-                <tr><td>Harga Lama</td><td><input value="<?php echo $row['harga_lama'];?>" type="text" name="harga_lama"></td></tr>
-                <tr><td>Harga Baru</td><td><input value="<?php echo $row['harga_baru'];?>" type="text" name="harga_baru"></td></tr></td>
-				<td align=center colspan="2"><button type="submit" value="Simpan">Submit</button></td>
-            </table>
-        </form>
-    </body>
-</html>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
+<div class="contact">
+	<div class="container">
+		<div class="contact-main">
+			<div class="contact-top">
+				<h1>Contact Us</h1>
+				<p>DaganganKu sudah memproduksi bahan pokok yang berkualitas sejak tahun 2000. Berikut contant yang kami berikan.</p>
+			</div>
+			<div class="col-md-6 contact-left">
+				<h2>Information</h2>
+				<h4>DaganganKu memproduksi product yang berkualitas</h4>
+				<p>Bahan-bahan pokok yang dijual dalam website DaganganKu sangat segar dan berkualitas tinggi. DaganganKu pasar online yang berasal dari pasar Rukoh dan sudah berdiri sejak tahun 2000</p>
+			    <ul>
+			    	<li><span class="glyphicon glyphicon-map-marker" aria-hidden="true"> </span>DaganganKu at Rukoh-Banda Aceh</li>
+			    	<li><span class="glyphicon glyphicon-phone" aria-hidden="true"> </span>+628 113 273 270</li>			    	
+			    	<li><span class="glyphicon glyphicon-envelope" aria-hidden="true"> </span><a href="mailto:info@example.com">daganganku@gmail.com</a></li>
+			    </ul>
+			</div>
+		  <div class="clearfix"> </div>
+		</div>
+	</div>
+</div>
+<!--contact end here-->
+<!--map start here-->
+<div class="map">
+	<div class="container">
+	 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15883.62567439454!2d95.35409666871516!3d5.580850241347702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3040364d60d6e9c3%3A0xa4fb850e0ab4c048!2sRukoh%2C+Syiah+Kuala%2C+Banda+Aceh+City%2C+Aceh%2C+Indonesia!5e0!3m2!1sen!2s!4v1495088818687" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+	</div>
 </div>
 <!--product end here-->
 <!--footer strat here-->

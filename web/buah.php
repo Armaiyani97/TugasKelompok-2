@@ -35,6 +35,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			});
 	</script>
 <!-- //end-smoth-scrolling -->
+	<!--?
+	include 'koneksi.php';
+	session_start();   
+		$strsql="SELECT buah.*, kategori.nama_kategori FROM buah, kategori WHERE buah.id_kategori=kategori.id_kategori AND buah.id_kategori='$id'";
+		$query=mysql_query($strsql,$koneksi);
+	<a href=keranjangku.php?id_barang=$data[id_barang]&harga_barang=$data[harga_barang]&jumlah=1&subtotal=$data[harga_barang]> <img src=image/add-to-cart.gif> </a> 
+	?-->
 <!-- the jScrollPane script -->
 <script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>
 		<script type="text/javascript" id="sourcecode">
@@ -50,7 +57,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 <!--header strat here-->
 <p><font face="cooper black" size="10" color="#EA572D"><b> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; DaganganKu</b></font>
-<!-- <p><font face="harrington" size="4" color="black"><b>Menjual Aneka Sayur, Buah, Bumbu dan Lauk-pauk~</b></font></p> -->
+<!-- <p><font face="harrington" size="4" color="black"><b>Menjual Aneka Sayur, Buah, Bumbu dan Lauk-pauk~</b></font></p> -->>
 <div class="header">
 	<div class="container">
 		<div class="header-main">
@@ -125,66 +132,165 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 <!--header end here-->
 <!--product start here-->
-<br>
-<br>
-<br>
-
-<style>   
-    table{
-        width: 30%;
-        margin: auto;
-        border-collapse: collapse;
-        box-shadow: darkgrey 3px;
-    }
-    thead tr {
-        background-color: #36c2ff;
-    }
-</style>
- 
-			  
-			  
-<?php
-
-	include 'koneksi.php';
-	$nama_barang         = $_GET['nama_barang'];
-	$product  			 = mysqli_query($koneksi, "select * from product where nama_barang='$nama_barang'");
-	$row      			 = mysqli_fetch_array($product);
-	// membuat function untuk set aktif radio button
-	function active_radio_button($value,$input){
-	// apabilan value dari radio sama dengan yang di input
-	$result =  $value==$input?'checked':'';
-	return $result;
-	}
-
-?>
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Update Harga</title>
-    </head>
-    <body>
-        <form method="post" action="edit.php">
-            <input type="hidden" value="<?php echo $row['nama_barang'];?>" name="nama_barang">
-            <table>
-                <tr><td>Nama Barang</td><td><input type="text" value="<?php echo $row['nama_barang'];?>" name="nama_barang"></td></tr>
-                <tr><td>Harga Lama</td><td><input value="<?php echo $row['harga_lama'];?>" type="text" name="harga_lama"></td></tr>
-                <tr><td>Harga Baru</td><td><input value="<?php echo $row['harga_baru'];?>" type="text" name="harga_baru"></td></tr></td>
-				<td align=center colspan="2"><button type="submit" value="Simpan">Submit</button></td>
-            </table>
-        </form>
-    </body>
-</html>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
+<div class="product">
+	<div class="container">
+		<div class="product-main">
+			  <div class=" product-menu-bar">
+			    	<div class="col-md-3 prdt-right">
+					<div class="w_sidebar">
+						<section  class="sky-form">
+							<h1>Buah-buahan</h1>
+							<div class="row1 scroll-pane">
+								<div class="col col-4">
+									<label><i></i>Daftar Buah</label>
+								</div>
+								<div class="col col-4">								
+									<label><i></i>- Melon</label><br>
+									<label><i></i>- Mangga</label><br>
+									<label><i></i>- Jeruk</label><br>		
+									<label><i></i>- Pepaya</label><br>
+									<label><i></i>- Strawberry</label><br>
+									<label><i></i>- Sawo</label><br>
+									<label><i></i>- Manggis</label><br>
+									<label><i></i>- Durian</label><br>
+									<label><i></i>- Salak</label><br>							
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+			  </div>	
+			  <div class="col-md-9 product-block">
+			      <div class="col-md-4 home-grid">
+					<div class="home-product-main">
+					   <div class="home-product-top">
+					      <a href="checkout.php"><img src="image/melon.jpg" alt="" class="img-responsive zoom-img"></a>
+					   </div>
+						<div class="home-product-bottom">
+								<h3>Melon</h3>
+								<p>Stock : 10 Kg</p>
+						</div>
+						<div class="srch">
+							<span>Rp.20.000/Kg</span>
+						</div>
+					</div>
+				 </div>
+			      <div class="col-md-4 home-grid">
+					<div class="home-product-main">
+					   <div class="home-product-top">
+					      <a href="single.html"><img src="image/mangga.jpg" alt="" class="img-responsive zoom-img"></a>
+					   </div>
+						<div class="home-product-bottom">
+								<h3>Mangga</h3>
+								<p>Stock : 15 Kg</p>
+						</div>
+						<div class="srch">
+							<span>Rp.15.000/Kg</span>
+						</div>
+					</div>
+				 </div>
+			     <div class="col-md-4 home-grid">
+					<div class="home-product-main">
+					   <div class="home-product-top">
+					      <a href="single.html"><img src="image/jeruk.jpg" alt="" class="img-responsive zoom-img"></a>
+					   </div>
+						<div class="home-product-bottom">
+								<h3>Jeruk</h3>
+								<p>Stock : 10 Kg</p>
+						</div>
+						<div class="srch">
+							<span>Rp.10.000/Kg</span>
+						</div>
+					</div>
+				 </div>
+			      <div class="col-md-4 home-grid">
+					<div class="home-product-main">
+					   <div class="home-product-top">
+					      <a href="single.html"><img src="image/pepaya.jpg" alt="" class="img-responsive zoom-img"></a>
+					   </div>
+						<div class="home-product-bottom">
+								<h3>Pepaya</h3>
+								<p>Stock : 5 Kg</p>
+						</div>
+						<div class="srch">
+							<span>Rp.7000/Kg</span>
+						</div>
+					</div>
+				 </div>
+			      <div class="col-md-4 home-grid">
+					<div class="home-product-main">
+					   <div class="home-product-top">
+					      <a href="single.html"><img src="image/strawberry.jpg" alt="" class="img-responsive zoom-img"></a>
+					   </div>
+						<div class="home-product-bottom">
+								<h3>Strawberry</h3>
+								<p>Stock : 25 Kg</p>
+						</div>
+						<div class="srch">
+							<span>Rp.10.000/Kg</span>
+						</div>
+					</div>
+				 </div>
+			      <div class="col-md-4 home-grid">
+					<div class="home-product-main">
+					   <div class="home-product-top">
+					      <a href="single.html"><img src="image/sawo.jpg" alt="" class="img-responsive zoom-img"></a>
+					   </div>
+						<div class="home-product-bottom">
+								<h3>Sawo</h3>
+								<p>Stock : 8 Kg</p>
+						</div>
+						<div class="srch">
+							<span>Rp.10.000/Kg</span>
+						</div>
+					</div>
+				 </div>
+			      <div class="col-md-4 home-grid">
+					<div class="home-product-main">
+					   <div class="home-product-top">
+					      <a href="single.html"><img src="image/manggis.jpg" alt="" class="img-responsive zoom-img"></a>
+					   </div>
+						<div class="home-product-bottom">
+								<h3>Manggis</h3>
+								<p>Stock : 14 Kg</p>
+						</div>
+						<div class="srch">
+							<span>Rp.25.000/Kg</span>
+						</div>
+					</div>
+				 </div>
+			      <div class="col-md-4 home-grid">
+					<div class="home-product-main">
+					   <div class="home-product-top">
+					      <a href="single.html"><img src="image/durian.jpg" alt="" class="img-responsive zoom-img"></a>
+					   </div>
+						<div class="home-product-bottom">
+								<h3>Durian</h3>
+								<p>Stock : 30 Kg</p>
+						</div>
+						<div class="srch">
+							<span>Rp.40.000/Kg</span>
+						</div>
+					</div>
+				 </div>
+			      <div class="col-md-4 home-grid">
+					<div class="home-product-main">
+					   <div class="home-product-top">
+					      <a href="single.html"><img src="image/salak.jpg" alt="" class="img-responsive zoom-img"></a>
+					   </div>
+						<div class="home-product-bottom">
+								<h3>Salak</h3>
+								<p>Stock : 15 Kg</p>
+						</div>
+						<div class="srch">
+							<span>Rp.10.000/Kg</span>
+						</div>
+					</div>
+				 </div>
+			      <div class="clearfix"> </div>
+			  </div>
+		</div>
+	</div>
 </div>
 <!--product end here-->
 <!--footer strat here-->

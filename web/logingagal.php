@@ -35,15 +35,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			});
 	</script>
 <!-- //end-smoth-scrolling -->
-<!-- the jScrollPane script -->
-<script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>
-		<script type="text/javascript" id="sourcecode">
-			$(function()
-			{
-				$('.scroll-pane').jScrollPane();
-			});
-		</script>
-<!-- //the jScrollPane script -->
 <script src="js/simpleCart.min.js"> </script>
 <script src="js/bootstrap.min.js"></script>
 </head>
@@ -124,74 +115,38 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 </div>
 <!--header end here-->
-<!--product start here-->
-<br>
-<br>
-<br>
-
-<style>   
-    table{
-        width: 30%;
-        margin: auto;
-        border-collapse: collapse;
-        box-shadow: darkgrey 3px;
-    }
-    thead tr {
-        background-color: #36c2ff;
-    }
-</style>
- 
-			  
-			  
-<?php
-
-	include 'koneksi.php';
-	$nama_barang         = $_GET['nama_barang'];
-	$product  			 = mysqli_query($koneksi, "select * from product where nama_barang='$nama_barang'");
-	$row      			 = mysqli_fetch_array($product);
-	// membuat function untuk set aktif radio button
-	function active_radio_button($value,$input){
-	// apabilan value dari radio sama dengan yang di input
-	$result =  $value==$input?'checked':'';
-	return $result;
-	}
-
-?>
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Update Harga</title>
-    </head>
-    <body>
-        <form method="post" action="edit.php">
-            <input type="hidden" value="<?php echo $row['nama_barang'];?>" name="nama_barang">
-            <table>
-                <tr><td>Nama Barang</td><td><input type="text" value="<?php echo $row['nama_barang'];?>" name="nama_barang"></td></tr>
-                <tr><td>Harga Lama</td><td><input value="<?php echo $row['harga_lama'];?>" type="text" name="harga_lama"></td></tr>
-                <tr><td>Harga Baru</td><td><input value="<?php echo $row['harga_baru'];?>" type="text" name="harga_baru"></td></tr></td>
-				<td align=center colspan="2"><button type="submit" value="Simpan">Submit</button></td>
-            </table>
-        </form>
-    </body>
-</html>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
+<!--log in start here-->
+<div class="login" style="padding-top: 30px">
+    		<div class="login-main">
+			  <h1>Masuk</h1>
+		  <div class="col-md-4 login-left" style="padding-left: 150px;">
+		  <form action="auth.php" method="post">
+		  Maaf, anda belum terdaftar atau data yang anda masukkan tidak benar!
+			<h2>Pengguna</h2>
+			<form style="width: 300px;">
+				<h5>Email *</h5>
+				<input type="text" id="email" class="form-control input-sm chat-input" placeholder="email" name="email" required=" " />
+             	<input type="hidden" name="auth" value="login">
+             	<h5>Password *</h5>
+            	<input type="password" id="userPassword" name="password" class="form-control input-sm chat-input" placeholder="password" required=" "/>
+				<input type="submit" value="Login">
+			</form>
+		  </div>
+		  <div class="col-md-7 login-right" style="padding-left: 150px;">
+		  	 <h3>Tidak Memiliki Akun?</h3>
+		     <a href="signup.php" class="login-btn" style="padding-left: 15px; padding-right: 15px; padding-bottom: 8px; padding-top: 8px; width: 110px">Buat Akun</a>
+		  </div>
+		  <div class="clearfix"> </div>
+		</div>
+	</div>
 </div>
-<!--product end here-->
+<!--log in end here-->
 <!--footer strat here-->
 <div class="footer">
 	<div class="container">
 		<div class="footer-main">
 			<div class="ftr-grids-block">
+				
 				<div class="col-md-8 footer-grid-icon" style="padding-left: 430px;">
 					<ul>
 						<li><a href="#"><span class="u-tub"> </span></a></li>
@@ -205,7 +160,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		  </div>
 		  <div class="copy-rights">
 		     <p>© 2017 DaganganKu. All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
-		   </div>
+		  </div>
 		</div>
 	</div>
 </div>

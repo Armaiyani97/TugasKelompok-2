@@ -124,14 +124,77 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 </div>
 <!--header end here-->
-<!--product start here-->
-<br>
-<br>
-<br>
 
-<style>   
+<div class="product">
+	<div class="container">
+		<div class="product-main">
+			  <div class=" product-menu-bar">
+			    	<div class="col-md-3 prdt-right">
+					<div class="w_sidebar">
+						<section  class="sky-form">
+							<h1>Daftar Menu</h1>
+							<div class="row1 scroll-pane">
+								<div class="col col-4">
+									<label><i></i>Daftar Menu</label>
+								</div>
+								<div class="col col-4">								
+									<label><i></i>- Melon</label><br>
+									<label><i></i>- Mangga</label><br>
+									<label><i></i>- Jeruk</label><br>		
+									<label><i></i>- Pepaya</label><br>
+									<label><i></i>- Strawberry</label><br>
+									<label><i></i>- Sawo</label><br>
+									<label><i></i>- Manggis</label><br>
+									<label><i></i>- Durian</label><br>
+									<label><i></i>- Salak</label><br>	
+									<label><i></i>- Terong</label><br>
+									<label><i></i>- Kacang Panjang</label><br>
+									<label><i></i>- Kentang</label><br>		
+									<label><i></i>- Jagung</label><br>
+									<label><i></i>- Tomat</label><br>
+									<label><i></i>- Wortel</label><br>
+									<label><i></i>- Asparagus</label><br>
+									<label><i></i>- Brokoli</label><br>
+									<label><i></i>- Lobak</label><br>							
+									<label><i></i>- Ikan Tongkol</label><br>
+									<label><i></i>- Telur</label><br>
+									<label><i></i>- Daging Sapi</label><br>		
+									<label><i></i>- Daging Kambing</label><br>
+									<label><i></i>- Tempe</label><br>
+									<label><i></i>- Ikan Mujair</label><br>
+									<label><i></i>- Bandang</label><br>
+									<label><i></i>- Daging Kerbau</label><br>
+									<label><i></i>- Daging Ayam</label><br>							
+									<label><i></i>- Cabe Merah</label><br>
+									<label><i></i>- Garam</label><br>
+									<label><i></i>- Penyedap</label><br>		
+									<label><i></i>- Jahe</label><br>
+									<label><i></i>- Kunyit</label><br>
+									<label><i></i>- Kapulaga</label><br>
+									<label><i></i>- Lada Hitam</label><br>
+									<label><i></i>- Cabai Hijau</label><br>
+									<label><i></i>- Serai</label><br>									
+								</div>
+							</div>
+						</section>	
+					</div>
+				</div>
+			  </div>	
+			  
+			  
+<?php
+
+	include 'koneksi.php';
+	
+?>
+
+<style>
+
+    tbody > tr:nth-child(2n+1) > td, tbody > tr:nth-child(2n+1) > th {
+        background-color: #ededed;
+    }
     table{
-        width: 30%;
+        width: 70%;
         margin: auto;
         border-collapse: collapse;
         box-shadow: darkgrey 3px;
@@ -141,40 +204,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     }
 </style>
  
-			  
-			  
-<?php
-
-	include 'koneksi.php';
-	$nama_barang         = $_GET['nama_barang'];
-	$product  			 = mysqli_query($koneksi, "select * from product where nama_barang='$nama_barang'");
-	$row      			 = mysqli_fetch_array($product);
-	// membuat function untuk set aktif radio button
-	function active_radio_button($value,$input){
-	// apabilan value dari radio sama dengan yang di input
-	$result =  $value==$input?'checked':'';
-	return $result;
-	}
-
-?>
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Update Harga</title>
+<h1 align="center">Tabel Harga</h1>
+ 
+<head>
+        <title>Nama Barang</title>
     </head>
     <body>
-        <form method="post" action="edit.php">
-            <input type="hidden" value="<?php echo $row['nama_barang'];?>" name="nama_barang">
-            <table>
-                <tr><td>Nama Barang</td><td><input type="text" value="<?php echo $row['nama_barang'];?>" name="nama_barang"></td></tr>
-                <tr><td>Harga Lama</td><td><input value="<?php echo $row['harga_lama'];?>" type="text" name="harga_lama"></td></tr>
-                <tr><td>Harga Baru</td><td><input value="<?php echo $row['harga_baru'];?>" type="text" name="harga_baru"></td></tr></td>
-				<td align=center colspan="2"><button type="submit" value="Simpan">Submit</button></td>
-            </table>
-        </form>
-    </body>
-</html>
+        <h3>Daftar Harga Barang</h3>
+		
+        <table border="1">
+			<br>
+            <tr><th><div align="center">NO</div></th><th><div align="center">Nama Barang</div></th><th><div align="center">Harga Lama</div></th><th><div align="center">Harga Baru</div><th><div align="center">Pilihan</div></th></tr>
+			<?php
+            include 'koneksi.php';
+            $product = mysqli_query($koneksi, "SELECT * from product");
+            $no = 1;
+            foreach ($product as $row) {
+                echo "<tr>
+            <td align=center>$no</td>
+            <td align=center>" . $row['nama_barang'] . "</td>
+            <td align=center>" . $row['harga_lama'] . "</td>
+            <td align=center>" . $row['harga_baru'] . "</td>
+            <td align=center><a href='update.php?nama_barang=$row[nama_barang]'>Edit</a></td>
+              </tr>";
+                $no++;
+            }
+            ?>
+        </table>
+		
+ 
 
 <br>
 <br>
@@ -184,8 +242,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <br>
 <br>
 <br>
-
-</div>
 <!--product end here-->
 <!--footer strat here-->
 <div class="footer">

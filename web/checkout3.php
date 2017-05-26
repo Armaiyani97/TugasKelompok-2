@@ -35,20 +35,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			});
 	</script>
 <!-- //end-smoth-scrolling -->
-<!-- the jScrollPane script -->
-<script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>
-		<script type="text/javascript" id="sourcecode">
-			$(function()
-			{
-				$('.scroll-pane').jScrollPane();
-			});
-		</script>
-<!-- //the jScrollPane script -->
+		
+		<?
+		include 'koneksi.php';
+	session_start();
+        if(!session_is_registered("cart_id_barang")){
+        session_register("cart_id_barang");
+        session_register("cart_nama_barang");
+        session_register("cart_image");
+        session_register("cart_harga_barang");
+        session_register("cart_jumlah");
+        session_register("cart_subtotal");
+        session_register("total");
+        $cart_id_barang=array();
+        $cart_nama_barang=array();
+        $cart_image=array();
+        $cart_harga_barang=array();
+        $cart_jumlah=array();
+        $cart_subtotal=array();
+        }
+	?>
 <script src="js/simpleCart.min.js"> </script>
 <script src="js/bootstrap.min.js"></script>
 </head>
 <body>
-<!--header strat here-->
 <p><font face="cooper black" size="10" color="#EA572D"><b> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; DaganganKu</b></font>
 <!-- <p><font face="harrington" size="4" color="black"><b>Menjual Aneka Sayur, Buah, Bumbu dan Lauk-pauk~</b></font></p> -->
 <div class="header">
@@ -124,69 +134,91 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 </div>
 <!--header end here-->
-<!--product start here-->
-<br>
-<br>
-<br>
-
-<style>   
-    table{
-        width: 30%;
-        margin: auto;
-        border-collapse: collapse;
-        box-shadow: darkgrey 3px;
-    }
-    thead tr {
-        background-color: #36c2ff;
-    }
-</style>
- 
-			  
-			  
-<?php
-
-	include 'koneksi.php';
-	$nama_barang         = $_GET['nama_barang'];
-	$product  			 = mysqli_query($koneksi, "select * from product where nama_barang='$nama_barang'");
-	$row      			 = mysqli_fetch_array($product);
-	// membuat function untuk set aktif radio button
-	function active_radio_button($value,$input){
-	// apabilan value dari radio sama dengan yang di input
-	$result =  $value==$input?'checked':'';
-	return $result;
-	}
-
-?>
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Update Harga</title>
-    </head>
-    <body>
-        <form method="post" action="edit.php">
-            <input type="hidden" value="<?php echo $row['nama_barang'];?>" name="nama_barang">
-            <table>
-                <tr><td>Nama Barang</td><td><input type="text" value="<?php echo $row['nama_barang'];?>" name="nama_barang"></td></tr>
-                <tr><td>Harga Lama</td><td><input value="<?php echo $row['harga_lama'];?>" type="text" name="harga_lama"></td></tr>
-                <tr><td>Harga Baru</td><td><input value="<?php echo $row['harga_baru'];?>" type="text" name="harga_baru"></td></tr></td>
-				<td align=center colspan="2"><button type="submit" value="Simpan">Submit</button></td>
-            </table>
-        </form>
-    </body>
-</html>
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-</div>
-<!--product end here-->
+<!--start-ckeckout-->
+	<div class="ckeckout">
+		<div class="container">
+			<div class="ckeckout-top">
+			<div class=" cart-items heading">
+			 <h1>KeranjangKu</h1>
+				<script>$(document).ready(function(c) {
+					$('.close1').on('click', function(c){
+						$('.cart-header').fadeOut('slow', function(c){
+							$('.cart-header').remove();
+						});
+						});	  
+					});
+			   </script>
+			<script>$(document).ready(function(c) {
+					$('.close2').on('click', function(c){
+						$('.cart-header1').fadeOut('slow', function(c){
+							$('.cart-header1').remove();
+						});
+						});	  
+					});
+			   </script>
+			   <script>$(document).ready(function(c) {
+					$('.close3').on('click', function(c){
+						$('.cart-header2').fadeOut('slow', function(c){
+							$('.cart-header2').remove();
+						});
+						});	  
+					});
+			   </script>
+				
+			<div class="in-check" >
+				<ul class="unit">
+					<li><span>Item</span></li>
+					<li><span>Nama Produk</span></li>		
+					<li><span>Harga/Kg</span></li>
+					<li><span>Detil Pesanan</span></li>
+					<li> </li>
+					<div class="clearfix"> </div>
+				</ul>
+				<ul class="cart-header simpleCart_shelfItem">
+					<div class="close1"></div>
+						<li class="ring-in"><a href="buah.html" ><img src="image/b12.jpg" class="img-responsive" alt=""></a>
+						</li>
+						<li><span>Melon</span></li>
+						<li><span class="item_price">Rp 20000/Kg</span></li>
+						<li> <a href="#" class="add-cart cart-check item_add">Tambahkan ke Keranjang</a></li>				
+					<div class="clearfix"> </div>
+				</ul>
+				<ul class=" cart-header1 simpleCart_shelfItem">
+					<div class="close2"> </div>
+						<li class="ring-in"><a href="sayur.php" ><img src="images/a1.jpg" class="img-responsive" alt=""></a>
+						</li>
+						<li><span>Terong</span></li>
+						<li><span class="item_price">Rp 5000/Kg</span></li>
+						<li> <a href="#" class="add-cart cart-check item_add">Tambahkan ke Keranjang</a></li>						
+						<div class="clearfix"> </div>
+				</ul>
+				<ul class="cart-header2 simpleCart_shelfItem">
+					<div class="close3"> </div>
+						<li class="ring-in"><a href="lauk.php" ><img src="image/l12.jpg" class="img-responsive" alt=""></a>
+						</li>
+						<li><span>Ikan Tongkol</span></li>
+						<li><span class="item_price">Rp 20000/Kg</span></li>
+						<li> <a href="#" class="add-cart cart-check item_add">Tambahkan ke Keranjang</a></li>						
+						<div class="clearfix"> </div>
+				</ul>
+				
+				<ul class="cart-header2 simpleCart_shelfItem">
+					<div class="close4"> </div>
+						<li class="ring-in"><a href="bumbu.php" ><img src="image/c1.jpg" class="img-responsive" alt=""></a>
+						</li>
+						<li><span>Cabe Merah</span></li>
+						<li><span class="item_price">Rp 15000/Kg</span></li>
+						<li> <a href="#" class="add-cart cart-check item_add">Tambahkan ke Keranjang</a></li>						
+						<div class="clearfix"> </div>
+				</ul>
+			
+				<center><h3><a href="pembayaran.php"><i class="hd-dign"></i>Pembayaran</a></h3></center>
+			</div>
+			</div>  
+		 </div>
+		</div>
+	</div>
+<!--end-ckeckout-->
 <!--footer strat here-->
 <div class="footer">
 	<div class="container">
